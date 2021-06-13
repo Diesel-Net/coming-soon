@@ -1,28 +1,8 @@
 FROM nginx
 
-# install dependencies
-RUN apt-get update && apt-get install -y \
-  wget \
-  git \
-  php7.3-cli
-
 ENV BASE_DIR /usr/share/nginx/html
-WORKDIR $BASE_DIR
 
-ARG defaultTemplate="bootstrap4"
-ENV TEMPLATE=$defaultTemplate
+ADD src/ /usr/share/nginx/html
+ADD src/update_page_and_run_nginx /usr/local/bin/
 
-# remove nginx default content
-RUN rm /usr/share/nginx/html/*
-
-# add comming soon page
-ADD ./src/ $BASE_DIR
-
-RUN ./src/templates/bootstrap4/checkout.sh # can i do this dynamically?
-
-ADD ./src/compileAndRun.sh /usr/local/bin/
-
-EXPOSE 80
-EXPOSE 443
-
-ENTRYPOINT ["compileAndRun.sh"]
+CMD 'update_page_and_run_nginx'
