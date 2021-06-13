@@ -1,2 +1,2 @@
 # coming-soon
-Coming Soon page
+A catchall landing page until I have the homepage of my site done.
