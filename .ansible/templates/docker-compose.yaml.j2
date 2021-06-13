@@ -14,7 +14,7 @@ services:
     deploy:
       labels:
         - traefik.enable=true
-        - traefik.http.services.coming-soon.loadbalancer.server.port=9000
+        - traefik.http.services.coming-soon.loadbalancer.server.port=80
         - traefik.http.routers.coming-soon.rule=Host(`{{ proxy_domains | join('`,`') }}`)
         - traefik.http.routers.coming-soon.tls.certresolver=step-ca
     networks:
