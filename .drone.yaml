@@ -16,7 +16,7 @@ steps:
         from_secret: nexus_pass
       repo: docker.nexus.diesel.net/${DRONE_REPO_NAME}
       tags:
-        - ${DRONE_REPO_BRANCH}-latest
+        - ${DRONE_BRANCH}-latest
       registry: docker.nexus.diesel.net
 
   - name: deploy
