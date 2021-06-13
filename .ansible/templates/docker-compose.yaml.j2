@@ -1,0 +1,57 @@
+# docker-compose.yaml
+
+version: '3.8'
+services: 
+
+  agent:
+    image: portainer/agent:2.5.1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker/volumes:/var/lib/docker/volumes
+    networks:
+      - {{ docker_network }}
+    deploy:
+      mode: global
+      placement:
+        constraints: [node.platform.os == linux]
+
+  main:
+    image: portainer/portainer-ce:2.5.1
+    command: >
+      --admin-password {{ portainer_admin_password | replace('$', '$$') }} 
+      -H tcp://tasks.agent:9001 
+      --tlsskipverify 
+    ports:
+      - "9000:9000" # backdoor, in case proxy isn't running
+      - "8000:8000"
+    volumes:
+      - {{ data_dir }}/:/data/
+    networks:
+      - {{ docker_network }}
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints: [node.role == manager]
+      labels:
+        - traefik.enable=true
+        - traefik.http.services.{{ proxy_router_main }}.loadbalancer.server.port=9000
+        - traefik.http.routers.{{ proxy_router_main }}.rule=Host(`{{ proxy_domains | join('`,`') }}`) && PathPrefix(`{{ proxy_path }}`)
+
+        - traefik.http.routers.{{ proxy_router_main }}.tls.certresolver=step-ca
+        
+        # stripprefix middleware
+        - traefik.http.middlewares.{{ proxy_router_main_strip }}.stripprefix.prefixes={{ proxy_path }}
+
+        # trailing slash middleware
+        - traefik.http.middlewares.{{ proxy_router_main_redirect }}.redirectregex.regex=(^.*\{{ proxy_path }}$$)
+        - traefik.http.middlewares.{{ proxy_router_main_redirect }}.redirectregex.replacement=$$1/
+        - traefik.http.middlewares.{{ proxy_router_main_redirect }}.redirectregex.permanent=false
+
+        # assign middlewares
+        - traefik.http.routers.{{ proxy_router_main }}.middlewares={{ proxy_router_main_redirect }}@docker, {{ proxy_router_main_strip }}@docker
+
+networks:
+  {{ docker_network }}:
+    external:
+      name: {{ docker_network }}
