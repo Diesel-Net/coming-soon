@@ -10,6 +10,7 @@ steps:
   - name: docker build & push  
     image: plugins/docker
     settings:
+      registry: docker.nexus.diesel.net
       username:
         from_secret: nexus_user
       password:
@@ -17,7 +18,7 @@ steps:
       repo: docker.nexus.diesel.net/${DRONE_REPO_NAME}
       tags:
         - ${DRONE_BRANCH}-latest
-      registry: docker.nexus.diesel.net
+      
 
   - name: deploy
     image: plugins/ansible:3
@@ -47,6 +48,18 @@ clone:
   depth: 1
 
 steps:
+  - name: docker build & push  
+    image: plugins/docker
+    settings:
+      registry: docker.nexus.diesel.net
+      username:
+        from_secret: nexus_user
+      password:
+        from_secret: nexus_pass
+      repo: docker.nexus.diesel.net/${DRONE_REPO_NAME}
+      tags:
+        - ${DRONE_BRANCH}-latest
+
   - name: deploy
     image: plugins/ansible:3
     environment:
@@ -75,6 +88,19 @@ clone:
   depth: 1
 
 steps:
+  - name: docker build & push  
+    image: plugins/docker
+    settings:
+      registry: docker.nexus.diesel.net
+      username:
+        from_secret: nexus_user
+      password:
+        from_secret: nexus_pass
+      repo: docker.nexus.diesel.net/${DRONE_REPO_NAME}
+      tags:
+        - production-latest
+        - ${DRONE_TAG}
+
   - name: deploy
     image: plugins/ansible:3
     environment:
