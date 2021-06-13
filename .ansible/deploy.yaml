@@ -10,6 +10,6 @@
         name: common
         tasks_from: make_data_dir
 
-    - include_role:
-        name: docker
-        tasks_from: stack_deploy
+    # - include_role:
+    #     name: docker
+    #     tasks_from: stack_deploy
