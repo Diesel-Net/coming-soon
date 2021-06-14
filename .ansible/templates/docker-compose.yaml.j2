@@ -15,7 +15,7 @@ services:
       labels:
         - traefik.enable=true
         - traefik.http.services.coming-soon.loadbalancer.server.port=80
-        - traefik.http.routers.coming-soon.rule=Host(`{{ proxy_domains | join('`,`') }}`)
+        - traefik.http.routers.coming-soon.rule=HostRegexp(`{{ proxy_domains | join('`,`') }}`)
         - traefik.http.routers.coming-soon.tls.certresolver=step-ca
     networks:
       - {{ docker_network }}
