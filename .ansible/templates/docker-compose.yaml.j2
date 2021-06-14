@@ -1,0 +1,26 @@
+# docker-compose.yaml
+
+version: '3.8'
+services: 
+
+  main:
+    image: docker.nexus.diesel.net/{{ git_repository }}:{{ git_branch }}-latest
+    
+    environment:
+      - TITLE=kiwi-labs.net
+      - PRODUCT_NAME=Kiwi Labs
+      - CATCHY_PHRASE=Homelab automation, DevOps tooling, Infrastructure as Code, web applications, dedicated game servers, experimentation and more...
+      - GITHUB_URL=https://github.com/Diesel-Net
+    deploy:
+      labels:
+        - traefik.enable=true
+        - traefik.http.services.coming-soon.loadbalancer.server.port=80
+        - traefik.http.routers.coming-soon.rule=Host(`{{ proxy_domains | join('`,`') }}`)
+        - traefik.http.routers.coming-soon.tls.certresolver=step-ca
+    networks:
+      - {{ docker_network }}
+
+networks:
+  {{ docker_network }}:
+    external:
+      name: {{ docker_network }}
