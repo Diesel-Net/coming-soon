@@ -1,2 +1,5 @@
 proxy_domains: 
   - prod.diesel.net
+  - kiwi-labs.net
+  - '{subdomain:[a-z]+}.diesel.net'
+  - '{subdomain:[a-z]+}.kiwi-labs.net'
