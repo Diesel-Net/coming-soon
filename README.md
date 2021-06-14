@@ -1,5 +1,5 @@
 # coming-soon
-A catchall landing page until I have the homepage of my site done.
+A catch-all landing page until I have the homepage of my site done. A special thanks to [Creative Tim](http://www.creative-tim.com) for supplying a great [template](https://www.creative-tim.com/product/coming-sssoon-page) to work from.
 
 ## Installing External Dependencies
 Ansible `2.10.3` was used at the time of this writing.
