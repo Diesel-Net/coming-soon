@@ -10,6 +10,7 @@ steps:
   - name: docker build & push  
     image: plugins/docker
     settings:
+      bip: true
       mirror: proxy.docker.nexus.diesel.net
       registry: docker.nexus.diesel.net
       username:
