@@ -26,3 +26,4 @@ coming soon page:
 | TWITTER_URL   | Twitter button URL to your page       | TWITTER_URL="https://www.twitter.com/awesomeapp"                       |
 | GITHUB_URL    | Github button URL to your page        | GITHUB_URL="https://www.github.com/awesomeapp"                         |
 | EMAIL         | Email to be used for the Email button | EMAIL="me@mydomain.com"                                                |
+
