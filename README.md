@@ -1,3 +1,5 @@
+[![Build Status](https://drone.kiwi-labs.net/api/badges/Diesel-Net/coming-soon/status.svg)](https://drone.kiwi-labs.net/Diesel-Net/coming-soon)
+
 # coming-soon
 A catch-all landing page until I have the homepage of my site done. A special thanks to [Creative Tim](http://www.creative-tim.com) for supplying a great [template](https://www.creative-tim.com/product/coming-sssoon-page) to work from.
 
