@@ -1,3 +1,5 @@
+[![Build Status](https://drone.kiwi-labs.net/api/badges/Diesel-Net/coming-soon/status.svg)](https://drone.kiwi-labs.net/Diesel-Net/coming-soon)
+
 # coming-soon
 A catch-all landing page until I have the homepage of my site done. A special thanks to [Creative Tim](http://www.creative-tim.com) for supplying a great [template](https://www.creative-tim.com/product/coming-sssoon-page) to work from.
 
@@ -26,3 +28,4 @@ coming soon page:
 | TWITTER_URL   | Twitter button URL to your page       | TWITTER_URL="https://www.twitter.com/awesomeapp"                       |
 | GITHUB_URL    | Github button URL to your page        | GITHUB_URL="https://www.github.com/awesomeapp"                         |
 | EMAIL         | Email to be used for the Email button | EMAIL="me@mydomain.com"                                                |
+
