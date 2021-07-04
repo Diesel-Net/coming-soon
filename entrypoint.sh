@@ -22,13 +22,13 @@ echo "Updating the product name with $PRODUCT_NAME ..."
 sed -i "s/ENV_PRODUCT_NAME/$PRODUCT_NAME/" "$BASE_DIR/index.html"
 
 # Catchy phrase
-if [[ -z "$CATCHY_PHRASE" ]]
+if [[ -z "$NOTICE_TEXT" ]]
 then
-  echo "WARNING: No CATCHY_PHRASE given, using the default one"
-  CATCHY_PHRASE=''
+  echo "WARNING: No NOTICE_TEXT given, using the default one"
+  NOTICE_TEXT=''
 fi;
-echo "Updating the catchy phrase with $CATCHY_PHRASE ..."
-sed -i "s/ENV_CATCHY_PHRASE/$CATCHY_PHRASE/" "$BASE_DIR/index.html"
+echo "Updating the catchy phrase with $NOTICE_TEXT ..."
+sed -i "s/ENV_NOTICE_TEXT/$NOTICE_TEXT/" "$BASE_DIR/index.html"
 
 # Facebook button
 if [[ -z "$FACEBOOK_URL" ]]
