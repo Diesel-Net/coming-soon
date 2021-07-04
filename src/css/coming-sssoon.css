@@ -792,6 +792,9 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
 .footer .heart{
     color: #FF3B30;
 }
+.footer .kiwi{
+    color: #FF3B30;
+}
 
 @media (min-width:219px){        
     .main .subscribe .form-group{
