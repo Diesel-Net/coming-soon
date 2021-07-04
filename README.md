@@ -23,7 +23,7 @@ coming soon page:
 |---------------|---------------------------------------|------------------------------------------------------------------------|
 | TITLE         | Webpage head title                    | TITLE="Awesome App"                                                    |
 | PRODUCT_NAME  | Product name show on the page         | PRODUCT_NAME="My Awesome App"                                          |
-| CATCHY_PHRASE | The sentence under the product name   | CATCHY_PHRASE="Awesome App is what you were looking for since a while."|
+| NOTICE_TEXT   | The sentence under the product name   | NOTICE_TEXT="Awesome App is what you were looking for since a while."  |
 | FACEBOOK_URL  | Facebook button URL to your page      | FACEBOOK_URL="https://www.facebook.com/awesomeapp"                     |
 | TWITTER_URL   | Twitter button URL to your page       | TWITTER_URL="https://www.twitter.com/awesomeapp"                       |
 | GITHUB_URL    | Github button URL to your page        | GITHUB_URL="https://www.github.com/awesomeapp"                         |
