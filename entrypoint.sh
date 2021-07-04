@@ -16,7 +16,7 @@ sed -i "s/ENV_TITLE/$TITLE/" "$BASE_DIR/index.html"
 if [[ -z "$PRODUCT_NAME" ]]
 then
   echo "WARNING: No PRODUCT_NAME given, using the default one"
-  PRODUCT_NAME='Sssonn'
+  PRODUCT_NAME='Coming Soon'
 fi;
 echo "Updating the product name with $PRODUCT_NAME ..."
 sed -i "s/ENV_PRODUCT_NAME/$PRODUCT_NAME/" "$BASE_DIR/index.html"
@@ -25,7 +25,7 @@ sed -i "s/ENV_PRODUCT_NAME/$PRODUCT_NAME/" "$BASE_DIR/index.html"
 if [[ -z "$CATCHY_PHRASE" ]]
 then
   echo "WARNING: No CATCHY_PHRASE given, using the default one"
-  CATCHY_PHRASE='Find the best Bootstrap 3 freebies and themes on the web.'
+  CATCHY_PHRASE=''
 fi;
 echo "Updating the catchy phrase with $CATCHY_PHRASE ..."
 sed -i "s/ENV_CATCHY_PHRASE/$CATCHY_PHRASE/" "$BASE_DIR/index.html"
