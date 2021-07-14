@@ -17,8 +17,8 @@ services:
         - traefik.http.services.coming-soon.loadbalancer.server.port=80
         - traefik.http.routers.coming-soon.rule=HostRegexp(`{{ proxy_domains | join('`,`') }}`)
         - traefik.http.routers.coming-soon.tls.certresolver=step-ca
-        - traefik.http.routers.coming-soon.tls.domains[0].main=proxy_domains[0]
-        - traefik.http.routers.coming-soon.tls.domains[0].sans=*.proxy_domains[0]
+        - traefik.http.routers.coming-soon.tls.domains[0].main={{ proxy_domains[0] }}
+        - traefik.http.routers.coming-soon.tls.domains[0].sans=*.{{ proxy_domains[0] }}
     networks:
       - {{ docker_network }}
 
