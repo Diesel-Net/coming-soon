@@ -737,6 +737,7 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
 }
 .main .motto{
     min-height: 140px;
+    line-height: 1.5em;
 }
 .main .motto, .main .subscribe .info-text{
     font-size: 24px;
@@ -788,12 +789,6 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
 }
 .footer a{
     color: #FFFFFF;
-}
-.footer .heart{
-    color: #FF3B30;
-}
-.footer .kiwi{
-    color: #FF3B30;
 }
 
 @media (min-width:219px){        
