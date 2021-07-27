@@ -791,6 +791,10 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
     color: #FFFFFF;
 }
 
+.kiwifruit {
+    font-size: 0.4em;
+}
+
 @media (min-width:219px){        
     .main .subscribe .form-group{
         width: auto;
