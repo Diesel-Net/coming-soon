@@ -116,7 +116,7 @@
     background-color: #DDDDDD;
     background-image: url('../images/default.jpg');
     background-attachment: fixed;
-    position: relative !important;
+    position: fixed !important;
     bottom: 0;
 }
 .footer .heart{
@@ -124,7 +124,7 @@
 }
 .footer .overlayer{
     background-color: rgba(27, 27, 27, 0.7);
-    position: relative;
+    position: fixed;
 }
 .footer .credits {
    border-top: 1px solid #BBBBBB;
