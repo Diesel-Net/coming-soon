@@ -116,7 +116,7 @@
     background-color: #DDDDDD;
     background-image: url('../images/default.jpg');
     background-attachment: fixed;
-    position: relative !important;
+    position: fixed !important;
     bottom: 0;
 }
 .footer .heart{
