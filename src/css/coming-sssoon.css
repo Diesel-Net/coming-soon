@@ -778,7 +778,7 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
 }
 
 .footer{
-    position: relative;
+    position: fixed;
     bottom: 20px;
     right: 0px;
     width: 100%;
