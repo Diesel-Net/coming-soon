@@ -748,6 +748,7 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
     text-shadow: 2px 2px 4px #000000;
     text-align: center;
     margin-top: 55px;
+    z-index: 5;
     
 }
 .sorry{
@@ -756,6 +757,7 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.33);
     text-align: center;
     margin-bottom: 34px;
+    z-index: 5;
     
 }
 .main .subscribe .info-text{
