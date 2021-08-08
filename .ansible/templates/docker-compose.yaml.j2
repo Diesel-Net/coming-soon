@@ -4,7 +4,7 @@ version: '3.8'
 services: 
 
   main:
-    image: {{ docker_registry }}/{{ git_repository }}:{{ git_branch }}-latest
+    image: {{ docker_registry }}/{{ repository }}:{{ version }}-latest
     
     environment:
       - TITLE=Kiwi Labs
