@@ -743,7 +743,7 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
     line-height: 1.5em;
 }
 .main .motto, .main .subscribe .info-text{
-    font-size: 23px;
+    font-size: 24px;
     color: #ffb100;
     text-shadow: 2px 2px 4px #000000;
     text-align: center;
@@ -751,7 +751,7 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
     
 }
 .sorry{
-    font-size: 19px;
+    font-size: 20px;
     color: white;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.33);
     text-align: center;
