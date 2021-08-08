@@ -5,18 +5,6 @@ all:
       hosts:
         prod.diesel.net
 
-    drone:
-      hosts:
-        drone.diesel.net:
-
-    tools:
-      hosts:
-        tools.diesel.net:
-
-    games:
-      hosts:
-        games.diesel.net:
-
   vars:        
     ansible_user: automation
     ansible_python_interpreter: /usr/bin/python3
