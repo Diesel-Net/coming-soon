@@ -731,20 +731,33 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
     font-size: 82px;
     
 }
+.fa-heart:before {
+    color:  white;
+}
 .main .content{
     position: relative;
     z-index: 4;
 }
 .main .motto{
-    min-height: 140px;
+    min-height: 45px;
     line-height: 1.5em;
 }
 .main .motto, .main .subscribe .info-text{
-    font-size: 22px;
-    color: #FFFFFF;
+    font-size: 24px;
+    color: #ffb100;
+    text-shadow: 2px 2px 4px #000000;
+    text-align: center;
+    margin-top: 55px;
+    z-index: 5;
+    
+}
+.sorry{
+    font-size: 20px;
+    color: white;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.33);
     text-align: center;
-    margin-top: 50px;
+    margin-bottom: 34px;
+    z-index: 5;
     
 }
 .main .subscribe .info-text{
@@ -778,14 +791,15 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
 }
 
 .footer{
+    font-size: 13px;
     position: fixed;
     bottom: 20px;
     right: 0px;
     width: 100%;
     color: #AAAAAA;
-    z-index: 4;
+    z-index: 1;
     text-align: right;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-bottom: 0px;
 }
 
@@ -926,7 +940,7 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
         right: 0px;
     }
     .main .container{
-        margin-bottom: 50px;
+        margin-bottom: 30px;
     }
     #video_background{
         display: none;
