@@ -1,5 +1,0 @@
-proxy_domains: 
-  - games.diesel.net
-  - games.kiwi-labs.net
-  - '{subdomain:[a-z0-9-]+}.diesel.net'
-  - '{subdomain:[a-z0-9-]+}.kiwi-labs.net'
