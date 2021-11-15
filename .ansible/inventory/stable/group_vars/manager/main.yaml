@@ -1,5 +1,3 @@
 proxy_domains: 
   - test.diesel.net
   - test.kiwi-labs.net
-  - '{subdomain:[a-z0-9-]+}.test.diesel.net'
-  - '{subdomain:[a-z0-9-]+}.test.kiwi-labs.net'
