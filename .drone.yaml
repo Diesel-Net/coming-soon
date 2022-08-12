@@ -1,13 +1,16 @@
 ---
 kind: pipeline
 type: docker
-name: Deploy coming-soon page
+name: Deploy coming-soon page (dev)
 
 clone:
   depth: 1
 
+concurrency:
+  limit: 1
+
 steps:
-  - name: docker build & push (dev/test)
+  - name: docker build & push
     image: plugins/docker
     settings:
       mirror: dockerhub.nexus.diesel.net
@@ -19,14 +22,79 @@ steps:
       repo: docker.nexus.diesel.net/${DRONE_REPO_NAME}
       tags:
         - ${DRONE_BRANCH}-latest
-    when:
-      branch:
-        - development
-        - stable
-      event:
-        - push
 
-  - name: docker build & push (prod)
+  - name: deploy
+    image: docker.nexus.diesel.net/drone-ansible:2.13
+    settings:
+      galaxy: .ansible/roles/requirements.yaml
+      inventory: .ansible/inventories/dev.yaml
+      playbook: .ansible/deploy.yaml
+      private_key:
+        from_secret: automation_id_rsa
+      vault_password:
+        from_secret: ansible_vault_password
+
+trigger:
+  branch:
+    - development
+  event:
+    - push
+
+---
+kind: pipeline
+type: docker
+name: Deploy coming-soon page (test)
+
+clone:
+  depth: 1
+
+concurrency:
+  limit: 1
+
+steps:
+  - name: docker build & push
+    image: plugins/docker
+    settings:
+      mirror: dockerhub.nexus.diesel.net
+      registry: docker.nexus.diesel.net
+      username:
+        from_secret: nexus_user
+      password:
+        from_secret: nexus_pass
+      repo: docker.nexus.diesel.net/${DRONE_REPO_NAME}
+      tags:
+        - ${DRONE_BRANCH}-latest
+
+  - name: deploy
+    image: docker.nexus.diesel.net/drone-ansible:2.13
+    settings:
+      galaxy: .ansible/roles/requirements.yaml
+      inventory: .ansible/inventories/test.yaml
+      playbook: .ansible/deploy.yaml
+      private_key:
+        from_secret: automation_id_rsa
+      vault_password:
+        from_secret: ansible_vault_password
+
+trigger:
+  branch:
+    - stable
+  event:
+    - push
+
+---
+kind: pipeline
+type: docker
+name: Deploy coming-soon page (prod)
+
+clone:
+  depth: 1
+
+concurrency:
+  limit: 1
+
+steps:
+  - name: docker build & push
     image: plugins/docker
     settings:
       mirror: dockerhub.nexus.diesel.net
@@ -39,33 +107,19 @@ steps:
       tags:
         - production-latest
         - ${DRONE_TAG}
-    when:
-      event:
-        - tag
 
   - name: deploy
-    image: plugins/ansible:3
-    environment:
-      ANSIBLE_CONFIG: .ansible/ansible.cfg
+    image: docker.nexus.diesel.net/drone-ansible:2.13
     settings:
-      playbook: .ansible/deploy.yaml
       galaxy: .ansible/roles/requirements.yaml
+      inventory: .ansible/inventories/prod.yaml
+      playbook: .ansible/deploy.yaml
       private_key:
         from_secret: automation_id_rsa
       vault_password:
         from_secret: ansible_vault_password
-    commands:
-      # dynamically select inventory based on Git branch/tag
-      - version=$DRONE_BRANCH
-      - if [ ! -z $DRONE_TAG ]; then version=production; fi
-      - /bin/drone-ansible --inventory .ansible/inventory/$$version/hosts
-
 
 trigger:
-  branch:
-    - development
-    - stable
   event:
-    - push
     - tag
 ...

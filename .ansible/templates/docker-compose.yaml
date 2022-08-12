@@ -4,7 +4,7 @@ version: '3.8'
 services: 
 
   main:
-    image: {{ docker_registry }}/{{ repository }}:{{ version }}-latest
+    image: {{ docker_image }}
     
     environment:
       - TITLE=Kiwi Labs
@@ -21,9 +21,9 @@ services:
         - traefik.http.routers.coming-soon.tls.domains[0].sans={{ proxy_domains[0] }}
         - traefik.http.routers.coming-soon.priority=1
     networks:
-      - {{ docker_network }}
+      - {{ traefik_network }}
 
 networks:
-  {{ docker_network }}:
+  {{ traefik_network }}:
     external:
-      name: {{ docker_network }}
+      name: {{ traefik_network }}
