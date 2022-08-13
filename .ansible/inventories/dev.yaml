@@ -1,10 +1,14 @@
 all:
   children:
 
-    manager:
+    swarm_manager:
       hosts:
         dev.diesel.net: 
 
-  vars:        
+  vars:
+    proxy_domains: 
+      - dev.diesel.net
+      - dev.kiwi-labs.net
+    
     ansible_user: automation
     ansible_python_interpreter: /usr/bin/python3

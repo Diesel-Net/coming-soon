@@ -3,17 +3,6 @@
 # coming-soon 
 Thanks to [Creative Tim](http://www.creative-tim.com) for supplying a great [template](https://www.creative-tim.com/product/coming-sssoon-page) to work from.
 
-## Installing External Dependencies
-Ansible `2.10.3` was used at the time of this writing.
-```bash
-ansible-galaxy install -r .ansible/roles/requirements.yaml -p .ansible/roles --force
-```
-
-## Deploy
-```bash
-ansible-playbook .ansible/deploy.yaml -i .ansible/inventories/development/hosts --vault-id ~/.tokens/vault.txt
-```
-
 ## Environment Variables
 
 You have the following environment variables which allow you to configure the
